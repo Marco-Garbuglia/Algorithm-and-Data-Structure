@@ -1,7 +1,17 @@
 #include <stdio.h>
 #include <string.h>
 
-#define MAXRIGA 256
+// uso lunghezza massima della riga 2^8 come convenzione
+#define MAXRIGA 256 
+
+/*  
+Programma che cerca una sequenza dentro una stringa secondo semplici regole: 
+il punto '.' può sostituire qualsiasi carattere, mentre '*' ripete il carattere precedente più volte  
+e '?' lo rende facoltativo. Il codice controlla la corrispondenza dei caratteri e prova  
+tutte le posizioni della stringa per trovare quelle che rispettano il modello dato.  
+Ogni volta che trova una parte valida, la stampa a video.  
+Viene gestito anche il caso in cui non ci siano risultati, stampando un messaggio dedicato.  
+*/
 
 static int carattere_corrisponde(char base, char ch){ return base=='.' || base==ch; }
 
