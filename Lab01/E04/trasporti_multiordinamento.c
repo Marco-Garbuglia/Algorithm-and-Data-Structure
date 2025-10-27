@@ -5,6 +5,17 @@
 #define MAXS 100
 #define MAXN 500
 
+/* leggo le corse e costruisco 4 vettori di puntatori
+   alle stesse voci (codice, data/ora, partenza, arrivo) così posso stampare/ricercare
+   in più ordini senza toccare i dati. Date/ore sono “compattate” in interi AAAAMMGG,
+   HHMM per confrontarle al volo. ordina_puntatori fa un insertion sort stabile sui
+   vettori di puntatori usando cmp_ptr che cambia chiave a seconda del caso. Il menu:
+   1 stampa per data+ora, 2 per codice, 3 per partenza, 4 per arrivo; 5 cerca un codice
+   con dicotomica sul vettore ordinato per codice; 6 cerca per prefisso di partenza sul
+   vettore ordinato per partenza (trovo l’inizio con una dicotomica e poi scorro finché
+   il prefisso regge). L’input è quello del file di log (prima N, poi righe con campi). 
+   */
+
 typedef struct {
     char codice[MAXS];
     char partenza[MAXS];
