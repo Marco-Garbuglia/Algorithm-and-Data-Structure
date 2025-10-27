@@ -2,8 +2,22 @@
 #include <string.h>
 #include <stdlib.h>
 
+
+// uso lunghezza massima della stringa 100 , poco sopra a 64 = 2^5, e della stringa 500,ragionevole, come convenzioni
 #define MAXS 100
 #define MAXN 500
+
+/* 
+leggo N corse da input e le salvo in voce_t (codice, partenza, destinazione, data, ora partenza/arrivo, ritardo). 
+Data e ora sono compattate in interi (AAAAMMGG, HHMM) per confrontarle facile.
+Il menu comandi: 1..4 ordinano in place (insertion sort) per data+ora, codice,
+partenza o arrivo; salvo la chiave attiva per sapere se posso cercare veloce.
+Per il codice uso binaria solo se sono già ordinato per codice, altrimenti lineare.
+Per la partenza con prefisso: se ordinato per partenza trovo una posizione e
+allargo a sinistra/destra l’intervallo contiguo; se no scorro tutto e stampo.
+La funzione confronta() centralizza i criteri (con campi secondari per stabilità);
+stampa_tutto/stampa_intervallo gestiscono l’output riga-per-riga.
+*/
 
 typedef struct {
     char codice[MAXS];
