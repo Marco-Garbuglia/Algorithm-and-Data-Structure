@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 
+// uso lunghezza massima della stringa 100 , poco sopra a 64 = 2^5, e della stringa 500,ragionevole, come convenzioni
 #define MAXS 100
 #define MAXN 500
 
